@@ -1,0 +1,33 @@
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-589nd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-ktdhj[0m
+{"level":"warn","ts":1574587280.579148,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1574587280.5799928,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-589nd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-7wz2q[0m
+{"level":"warn","ts":1574587281.988255,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1574587281.9900248,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-589nd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-589nd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-carlossg-environment-jx-rocks-u-hhtkt[0m
+{"level":"warn","ts":1574587311.091735,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1574587311.4526787,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/********/environment-**-rocks-us-production.git @ master in path /workspace/source"}
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-589nd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:5c7f8b2ffb4d92feb526179543b30934cceeb4dd,5:3da2eb2c9ca53bc903eb15e9de2f55299e3d62b7
+DEBUG: ran git fetch --unshallow origin 3da2eb2c9ca53bc903eb15e9de2f55299e3d62b7: 5c7f8b2ffb4d92feb526179543b30934cceeb4dd: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 5c7f8b2ffb4d92feb526179543b30934cceeb4dd in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 3da2eb2c9ca53bc903eb15e9de2f55299e3d62b7 in 
+Merged SHA 3da2eb2c9ca53bc903eb15e9de2f55299e3d62b7 with commit message 'chore: Promote croc-hunter-java to version 0.0.77' into base branch master
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-589nd-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-build[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
