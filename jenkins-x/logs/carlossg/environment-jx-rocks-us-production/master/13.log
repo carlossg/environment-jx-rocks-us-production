@@ -1,0 +1,23 @@
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-b4tzq-13[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-kl7wl[0m
+{"level":"warn","ts":1580549583.099024,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1580549583.0993445,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-b4tzq-13[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-fjpm8[0m
+{"level":"warn","ts":1580549583.5088494,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1580549583.510299,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-b4tzq-13[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-b4tzq-13[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-carlossg-environment-jx-rocks-u-b4tzq-t2465[0m
+{"level":"warn","ts":1580549588.5615337,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1580549588.8181736,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/********/environment-**-rocks-us-production.git @ v0.0.13 in path /workspace/source"}
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-b4tzq-13[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:36dbb941f5ce6fab1565e3f91b27191fd8b71eab
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-b4tzq-13[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+error: error loading TeamSettings to determine if in GitHub app mode: failed to setup the dev environment for namespace '**': environments.jenkins.io is forbidden: User "system:serviceaccount:**:default" cannot create resource "environments" in API group "jenkins.io" in the namespace "**"
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-setup-jx-git-credentials'. The execution of the pipeline has stopped.[0m
