@@ -1,0 +1,80 @@
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-42z97-14[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-b44wx[0m
+{"level":"warn","ts":1580549936.2952719,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1580549936.295642,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-42z97-14[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-5k5jw[0m
+{"level":"warn","ts":1580549937.2730613,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1580549937.2763689,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-42z97-14[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-42z97-14[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-carlossg-environment-jx-rocks-u-42z97-d2g4m[0m
+{"level":"warn","ts":1580549941.313284,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1580549941.6645703,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/********/environment-**-rocks-us-production.git @ v0.0.14 in path /workspace/source"}
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-42z97-14[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:1a5029457aa23ef212ecbd49145186a3196c19b5
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-42z97-14[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /builder/home/git/credentials
+
+Showing logs for build [32mcarlossg-environment-jx-rocks-u-42z97-14[0m stage [32mfrom-build-pack[0m and container [32mstep-build-helm-apply[0m
+Modified file /workspace/source/env/Chart.yaml to set the chart to version 14
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+Ignoring templates/.gitignore
+Ignoring templates/wildcardcert-secret.yaml
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+error: upgrading helm chart '.': failed to run 'kubectl apply --recursive -f /tmp/helm-template-workdir-552200693/**/output/namespaces/**-production -l jenkins.io/chart-release=** --namespace **-production --wait --validate=false' command in directory '/tmp/**-helm-apply-812549160/env', output: 'serviceaccount/cleanup configured
+configmap/exposecontroller configured
+serviceaccount/expose configured
+Error from server (Forbidden): error when retrieving current configuration of:
+Resource: "rbac.authorization.k8s.io/v1, Resource=roles", GroupVersionKind: "rbac.authorization.k8s.io/v1, Kind=Role"
+Name: "cleanup", Namespace: "**-production"
+Object: &{map["apiVersion":"rbac.authorization.k8s.io/v1" "kind":"Role" "metadata":map["annotations":map["jenkins.io/chart":"env" "kubectl.kubernetes.io/last-applied-configuration":""] "labels":map["jenkins.io/chart-release":"**" "jenkins.io/namespace":"**-production" "jenkins.io/version":"14"] "name":"cleanup" "namespace":"**-production"] "rules":[map["apiGroups":["extensions"] "resources":["ingresses"] "verbs":["get" "list" "watch" "patch" "create" "update" "delete"]] map["apiGroups":[""] "resources":["configmaps" "services"] "verbs":["get" "list" "watch" "patch" "update"]] map["apiGroups":["extensions" "apps"] "resources":["deployments"] "verbs":["get" "list" "watch" "patch" "update"]] map["apiGroups":["" "route.openshift.io"] "resources":["routes"] "verbs":["get" "list" "watch" "patch" "create" "update" "delete"]]]]}
+from server for: "/tmp/helm-template-workdir-552200693/**/output/namespaces/**-production/env/charts/cleanup/templates/part0-role.yaml": roles.rbac.authorization.k8s.io "cleanup" is forbidden: User "system:serviceaccount:**:default" cannot get resource "roles" in API group "rbac.authorization.k8s.io" in the namespace "**-production"
+Error from server (Forbidden): error when retrieving current configuration of:
+Resource: "rbac.authorization.k8s.io/v1, Resource=rolebindings", GroupVersionKind: "rbac.authorization.k8s.io/v1, Kind=RoleBinding"
+Name: "cleanup", Namespace: "**-production"
+Object: &{map["apiVersion":"rbac.authorization.k8s.io/v1" "kind":"RoleBinding" "metadata":map["annotations":map["jenkins.io/chart":"env" "kubectl.kubernetes.io/last-applied-configuration":""] "labels":map["jenkins.io/chart-release":"**" "jenkins.io/namespace":"**-production" "jenkins.io/version":"14"] "name":"cleanup" "namespace":"**-production"] "roleRef":map["apiGroup":"rbac.authorization.k8s.io" "kind":"Role" "name":"cleanup"] "subjects":[map["kind":"ServiceAccount" "name":"cleanup" "namespace":"**-production"]]]}
+from server for: "/tmp/helm-template-workdir-552200693/**/output/namespaces/**-production/env/charts/cleanup/templates/part0-rolebinding.yaml": rolebindings.rbac.authorization.k8s.io "cleanup" is forbidden: User "system:serviceaccount:**:default" cannot get resource "rolebindings" in API group "rbac.authorization.k8s.io" in the namespace "**-production"
+Error from server (Forbidden): error when retrieving current configuration of:
+Resource: "flagger.app/v1alpha2, Resource=canaries", GroupVersionKind: "flagger.app/v1alpha2, Kind=Canary"
+Name: "**-croc-hunter-java", Namespace: "**-production"
+Object: &{map["apiVersion":"flagger.app/v1alpha2" "kind":"Canary" "metadata":map["annotations":map["jenkins.io/chart":"env" "kubectl.kubernetes.io/last-applied-configuration":""] "labels":map["jenkins.io/chart-release":"**" "jenkins.io/namespace":"**-production" "jenkins.io/version":"14"] "name":"**-croc-hunter-java" "namespace":"**-production"] "spec":map["canaryAnalysis":map["interval":"60s" "maxWeight":'2' "metrics":[map["interval":"60s" "name":"request-success-rate" "threshold":'c'] map["interval":"60s" "name":"request-duration" "threshold":'\u01f4']] "stepWeight":'\n' "threshold":'\x02'] "progressDeadlineSeconds":'<' "service":map["gateways":["**-gateway.istio-system.svc.cluster.local"] "hosts":["croc-hunter-java.istio.us.g.csanchez.org" "croc-hunter-java.istio.eu.g.csanchez.org" "croc-hunter-java.istio.alibaba.g.csanchez.org" "croc-hunter-java.istio.a.csanchez.org"] "port":'\u1f90'] "targetRef":map["apiVersion":"apps/v1" "kind":"Deployment" "name":"**-croc-hunter-java"]]]}
+from server for: "/tmp/helm-template-workdir-552200693/**/output/namespaces/**-production/env/charts/croc-hunter-java/templates/part0-canary.yaml": canaries.flagger.app "**-croc-hunter-java" is forbidden: User "system:serviceaccount:**:default" cannot get resource "canaries" in API group "flagger.app" in the namespace "**-production"
+Error from server (Forbidden): error when retrieving current configuration of:
+Resource: "extensions/v1beta1, Resource=deployments", GroupVersionKind: "extensions/v1beta1, Kind=Deployment"
+Name: "**-croc-hunter-java", Namespace: "**-production"
+Object: &{map["apiVersion":"extensions/v1beta1" "kind":"Deployment" "metadata":map["annotations":map["jenkins.io/chart":"env" "kubectl.kubernetes.io/last-applied-configuration":""] "labels":map["chart":"croc-hunter-java-0.0.77" "draft":"draft-app" "jenkins.io/chart-release":"**" "jenkins.io/namespace":"**-production" "jenkins.io/version":"14"] "name":"**-croc-hunter-java" "namespace":"**-production"] "spec":map["replicas":'\x01' "template":map["metadata":map["labels":map["app":"**-croc-hunter-java" "draft":"draft-app"]] "spec":map["containers":[map["env":<nil> "image":"gcr.io/api-project-642841493686/croc-hunter-java:0.0.77" "imagePullPolicy":"IfNotPresent" "livenessProbe":map["httpGet":map["path":"/healthz" "port":'\u1f90'] "initialDelaySeconds":'<' "periodSeconds":'\n' "successThreshold":'\x01' "timeoutSeconds":'\x01'] "name":"croc-hunter-java" "ports":[map["containerPort":'\u1f90']] "readinessProbe":map["httpGet":map["path":"/healthz" "port":'\u1f90'] "periodSeconds":'\n' "successThreshold":'\x01' "timeoutSeconds":'\x01'] "resources":map["limits":map["cpu":"500m" "memory":"128Mi"] "requests":map["cpu":"100m" "memory":"64Mi"]]]] "terminationGracePeriodSeconds":'\n']]]]}
+from server for: "/tmp/helm-template-workdir-552200693/**/output/namespaces/**-production/env/charts/croc-hunter-java/templates/part0-deployment.yaml": deployments.extensions "**-croc-hunter-java" is forbidden: User "system:serviceaccount:**:default" cannot get resource "deployments" in API group "extensions" in the namespace "**-production"
+Error from server (Forbidden): error when retrieving current configuration of:
+Resource: "jenkins.io/v1, Resource=releases", GroupVersionKind: "jenkins.io/v1, Kind=Release"
+Name: "croc-hunter-java-0.0.77", Namespace: "**-production"
+Object: &{map["apiVersion":"jenkins.io/v1" "kind":"Release" "metadata":map["annotations":map["jenkins.io/chart":"env" "kubectl.kubernetes.io/last-applied-configuration":""] "creationTimestamp":"2019-11-24T07:39:13Z" "deletionTimestamp":<nil> "labels":map["jenkins.io/chart-release":"**" "jenkins.io/namespace":"**-production" "jenkins.io/version":"14"] "name":"croc-hunter-java-0.0.77" "namespace":"**-production"] "spec":map["commits":[map["author":map[] "branch":"master" "committer":map[] "message":"No lasers\n" "sha":"b05fec42054268c4b056486037995324e45d79f5"]] "gitCloneUrl":"https://github.com/********/croc-hunter-java.git" "gitHttpUrl":"https://github.com/********/croc-hunter-java" "gitOwner":"********" "gitRepository":"croc-hunter-java" "name":"croc-hunter-java" "releaseNotesURL":"https://github.com/********/croc-hunter-java/releases/tag/v0.0.77" "version":"v0.0.77"] "status":map[]]}
+from server for: "/tmp/helm-template-workdir-552200693/**/output/namespaces/**-production/env/charts/croc-hunter-java/templates/part0-release.yaml": releases.jenkins.io "croc-hunter-java-0.0.77" is forbidden: User "system:serviceaccount:**:default" cannot get resource "releases" in API group "jenkins.io" in the namespace "**-production"
+Error from server (Forbidden): error when retrieving current configuration of:
+Resource: "/v1, Resource=services", GroupVersionKind: "/v1, Kind=Service"
+Name: "croc-hunter-java", Namespace: "**-production"
+Object: &{map["apiVersion":"v1" "kind":"Service" "metadata":map["annotations":map["fabric8.io/expose":"true" "fabric8.io/ingress.annotations":"kubernetes.io/ingress.class: nginx" "jenkins.io/chart":"env" "kubectl.kubernetes.io/last-applied-configuration":""] "labels":map["chart":"croc-hunter-java-0.0.77" "jenkins.io/chart-release":"**" "jenkins.io/namespace":"**-production" "jenkins.io/version":"14"] "name":"croc-hunter-java" "namespace":"**-production"] "spec":map["ports":[map["name":"http" "port":'P' "protocol":"TCP" "targetPort":'\u1f90']] "selector":map["app":"**-croc-hunter-java"] "type":"ClusterIP"]]}
+from server for: "/tmp/helm-template-workdir-552200693/**/output/namespaces/**-production/env/charts/croc-hunter-java/templates/part0-service.yaml": services "croc-hunter-java" is forbidden: User "system:serviceaccount:**:default" cannot get resource "services" in API group "" in the namespace "**-production"
+Error from server (Forbidden): error when retrieving current configuration of:
+Resource: "rbac.authorization.k8s.io/v1, Resource=roles", GroupVersionKind: "rbac.authorization.k8s.io/v1, Kind=Role"
+Name: "expose", Namespace: "**-production"
+Object: &{map["apiVersion":"rbac.authorization.k8s.io/v1" "kind":"Role" "metadata":map["annotations":map["jenkins.io/chart":"env" "kubectl.kubernetes.io/last-applied-configuration":""] "labels":map["jenkins.io/chart-release":"**" "jenkins.io/namespace":"**-production" "jenkins.io/version":"14"] "name":"expose" "namespace":"**-production"] "rules":[map["apiGroups":["extensions"] "resources":["ingresses"] "verbs":["get" "list" "watch" "patch" "create" "update" "delete"]] map["apiGroups":[""] "resources":["configmaps" "services"] "verbs":["get" "list" "watch" "patch" "update"]] map["apiGroups":["extensions" "apps"] "resources":["deployments"] "verbs":["get" "list" "watch" "patch" "update"]] map["apiGroups":["" "route.openshift.io"] "resources":["routes"] "verbs":["get" "list" "watch" "patch" "create" "update" "delete"]]]]}
+from server for: "/tmp/helm-template-workdir-552200693/**/output/namespaces/**-production/env/charts/expose/templates/part0-role.yaml": roles.rbac.authorization.k8s.io "expose" is forbidden: User "system:serviceaccount:**:default" cannot get resource "roles" in API group "rbac.authorization.k8s.io" in the namespace "**-production"
+Error from server (Forbidden): error when retrieving current configuration of:
+Resource: "rbac.authorization.k8s.io/v1, Resource=rolebindings", GroupVersionKind: "rbac.authorization.k8s.io/v1, Kind=RoleBinding"
+Name: "expose", Namespace: "**-production"
+Object: &{map["apiVersion":"rbac.authorization.k8s.io/v1" "kind":"RoleBinding" "metadata":map["annotations":map["jenkins.io/chart":"env" "kubectl.kubernetes.io/last-applied-configuration":""] "labels":map["jenkins.io/chart-release":"**" "jenkins.io/namespace":"**-production" "jenkins.io/version":"14"] "name":"expose" "namespace":"**-production"] "roleRef":map["apiGroup":"rbac.authorization.k8s.io" "kind":"Role" "name":"expose"] "subjects":[map["kind":"ServiceAccount" "name":"expose" "namespace":"**-production"]]]}
+from server for: "/tmp/helm-template-workdir-552200693/**/output/namespaces/**-production/env/charts/expose/templates/part0-rolebinding.yaml": rolebindings.rbac.authorization.k8s.io "expose" is forbidden: User "system:serviceaccount:**:default" cannot get resource "rolebindings" in API group "rbac.authorization.k8s.io" in the namespace "**-production"'
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-helm-apply'. The execution of the pipeline has stopped.[0m
